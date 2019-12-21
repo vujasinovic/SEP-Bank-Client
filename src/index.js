@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Payment from "./payment/payment";
 import Card from "./card/card"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
