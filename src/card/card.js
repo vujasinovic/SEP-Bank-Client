@@ -13,9 +13,11 @@ class Card extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
 
+        let urlParam = this.props.match.params.url;
+
         const requestData = new FormData(event.target);
 
-        let {data} = await axios.post('http://localhost:8080/payment/123456789', requestData);
+        let {data} = await axios.post('http://localhost:8080/payment/' + urlParam, requestData);
 
         window.location = data.url;
     }

@@ -10,6 +10,7 @@ import Card from "./card/card"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Notfound from "./notfound/notFound";
 import {Nav, Navbar, NavbarBrand, NavItem, NavLink} from "reactstrap";
+import KpRequest from "./kp-request/kpRequest";
 
 const routing = (
     <Router>
@@ -24,14 +25,15 @@ const routing = (
                         <NavLink href="/payment">Payment</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/card">Card</NavLink>
+                        <NavLink href = "/kpRequest">Simulate KP request</NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>
             <Switch>
                 <Route exact path="/" component={App}/>
                 <Route path="/payment" component={Payment}/>
-                <Route path="/card" component={Card}/>
+                <Route path="/card/:url" component={Card}/>
+                <Route payh="/kpRequest" component={KpRequest}/>
                 <Route component={Notfound}/>
             </Switch>
         </div>
