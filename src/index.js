@@ -5,7 +5,40 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Payment from "./payment/payment";
+import Card from "./card/card"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Notfound from "./notfound/notFound";
+import {Nav, Navbar, NavbarBrand, NavItem, NavLink} from "reactstrap";
+
+const routing = (
+    <Router>
+        <div>
+            <Navbar color="light" light expand="md">
+                <NavbarBrand href="/">FooBank</NavbarBrand>
+                <Nav className="mr-auto" navbar>
+                    <NavItem>
+                        <NavLink href="/">Home</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/payment">Payment</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href="/card">Card</NavLink>
+                    </NavItem>
+                </Nav>
+            </Navbar>
+            <Switch>
+                <Route exact path="/" component={App}/>
+                <Route path="/payment" component={Payment}/>
+                <Route path="/card" component={Card}/>
+                <Route component={Notfound}/>
+            </Switch>
+        </div>
+    </Router>
+);
+
+ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
