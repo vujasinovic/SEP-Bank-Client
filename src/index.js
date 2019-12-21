@@ -22,16 +22,12 @@ const routing = (
                         <NavLink href="/">Home</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/payment">Payment</NavLink>
-                    </NavItem>
-                    <NavItem>
                         <NavLink href = "/kpRequest">Simulate KP request</NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>
             <Switch>
                 <Route exact path="/" component={App}/>
-                <Route path="/payment" component={Payment}/>
                 <Route path="/card/:url" component={Card}/>
                 <Route payh="/kpRequest" component={KpRequest}/>
                 <Route component={Notfound}/>
