@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from "./API/AxiosInstance";
+
 
 class App extends Component {
     state = {
@@ -9,8 +11,8 @@ class App extends Component {
     };
 
     async componentDidMount() {
-        const response = await fetch('/cards');
-        const body = await response.json();
+        const response = await axios.get('/cards');
+        const body = response.data;
         this.setState({cards: body, isLoading: false});
     }
 

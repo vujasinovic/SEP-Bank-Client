@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Form, FormGroup, Label, Input, Container} from "reactstrap";
-import axios from "axios";
+import axios from "../API/AxiosInstance";
 
 class Card extends React.Component {
 
@@ -17,7 +17,7 @@ class Card extends React.Component {
 
         const requestData = new FormData(event.target);
 
-        let {data} = await axios.post('http://localhost:8080/payment/' + urlParam, requestData);
+        let {data} = await axios.post('payment/' + urlParam, requestData);
 
         window.location = data.url;
     }

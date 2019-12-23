@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Container, Form, FormGroup, Input, Label} from "reactstrap";
-import axios from "axios";
+import axios from "../API/AxiosInstance";
 
 class KpRequest extends React.Component {
     constructor() {
@@ -14,7 +14,7 @@ class KpRequest extends React.Component {
 
         const requestData = new FormData(event.target);
 
-        let {data} = await axios.post('http://localhost:8080/payment', requestData);
+        let {data} = await axios.post('/payment', requestData);
 
         console.log(data);
         window.location = '/card/' + data.url;
